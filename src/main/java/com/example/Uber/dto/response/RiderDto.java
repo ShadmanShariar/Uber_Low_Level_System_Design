@@ -1,4 +1,4 @@
 package com.example.Uber.dto.response;
 
-public class RiderResponseDto {
+public class RiderDto {
 }

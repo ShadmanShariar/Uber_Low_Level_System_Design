@@ -1,4 +1,4 @@
 package com.example.Uber.controller;
 
-public class RiderController {
+public interface RiderController {
 }
