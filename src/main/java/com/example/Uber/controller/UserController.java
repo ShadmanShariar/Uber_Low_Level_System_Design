@@ -6,7 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping(value = "/user", produces = "application/json")
+import static com.example.Uber.constant.WebApiUrlConstants.CLIENT_API;
+
+@RequestMapping(value = CLIENT_API, produces = "application/json")
 public interface UserController {
 
     @PostMapping
