@@ -9,4 +9,7 @@ public class WebApiUrlConstants {
     // User
     public final static String CLIENT_API = API_URI_ROOT + "/user";
 
+    // Rider
+    public final static String RIDER_API = API_URI_ROOT + "/rider";
+
 }
