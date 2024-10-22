@@ -5,7 +5,13 @@ import com.example.Uber.dto.response.UserDto;
 import com.example.Uber.model.User;
 import com.example.Uber.repository.UserRepository;
 import com.example.Uber.service.UserService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,6 +26,14 @@ public class UserServiceImpl implements UserService {
     public UserDto save(SaveUserDto saveUserDto) {
         User user = userRepository.save(User.toUser(saveUserDto));
         return User.toUserDto(user);
+    }
+
+    @Override
+    public List<UserDto> getAllUsers(Integer offset, Integer pageSize) {
+        Pageable pageable = PageRequest.of(offset, pageSize);
+        Page<User> pageUser = userRepository.findAll(pageable);
+        List<User> allUser = pageUser.getContent();
+        return allUser.stream().map(user -> user.toUserDto(user)).collect(Collectors.toList());
     }
 
 }
