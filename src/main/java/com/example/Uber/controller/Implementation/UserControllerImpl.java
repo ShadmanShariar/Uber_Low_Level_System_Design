@@ -1,7 +1,9 @@
 package com.example.Uber.controller.Implementation;
 
 import com.example.Uber.controller.UserController;
+import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveUserDto;
+import com.example.Uber.dto.response.RiderDto;
 import com.example.Uber.dto.response.UserDto;
 import com.example.Uber.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -28,9 +30,9 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
-    public ResponseEntity<List<UserDto>> getAllUsers(@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize) {
-        List<UserDto> users = userService.getAllUsers(offset, pageSize);
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    public ResponseEntity<ApiResponse<List<UserDto>>> getAllUsers(@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize) {
+        ApiResponse<List<UserDto>> response = userService.getAllUsers(offset, pageSize);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }

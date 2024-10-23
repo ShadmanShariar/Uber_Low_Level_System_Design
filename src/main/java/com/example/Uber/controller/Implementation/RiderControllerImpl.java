@@ -1,6 +1,7 @@
 package com.example.Uber.controller.Implementation;
 
 import com.example.Uber.controller.RiderController;
+import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveRiderDto;
 import com.example.Uber.dto.response.RiderDto;
 import com.example.Uber.service.RiderService;
@@ -28,9 +29,9 @@ public class RiderControllerImpl implements RiderController {
     }
 
     @Override
-    public ResponseEntity<List<RiderDto>> getAllRiders(@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize) {
-        List<RiderDto> riders = riderService.getAllRiders(offset, pageSize);
-        return new ResponseEntity<>(riders, HttpStatus.OK);
+    public ResponseEntity<ApiResponse<List<RiderDto>>> getAllRiders(@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize) {
+        ApiResponse<List<RiderDto>> response = riderService.getAllRiders(offset, pageSize);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }

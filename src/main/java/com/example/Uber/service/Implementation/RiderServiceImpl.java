@@ -1,5 +1,6 @@
 package com.example.Uber.service.Implementation;
 
+import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveRiderDto;
 import com.example.Uber.dto.response.RiderDto;
 import com.example.Uber.model.Rider;
@@ -7,6 +8,7 @@ import com.example.Uber.repository.RiderRepository;
 import com.example.Uber.service.RiderService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 
@@ -29,11 +31,12 @@ public class  RiderServiceImpl implements RiderService {
     }
 
     @Override
-    public List<RiderDto> getAllRiders(Integer offset, Integer pageSize) {
+    public ApiResponse<List<RiderDto>> getAllRiders(Integer offset, Integer pageSize) {
         Pageable pageable = PageRequest.of(offset, pageSize);
         Page<Rider> pageRider = riderRepository.findAll(pageable);
         List<Rider> allRider = pageRider.getContent();
-        return allRider.stream().map(rider -> rider.toRiderDto(rider)).collect(Collectors.toList());
+        List<RiderDto> riderDtos = allRider.stream().map(rider -> rider.toRiderDto(rider)).collect(Collectors.toList());
+        return new ApiResponse<>("Data fetched successfully", HttpStatus.OK.value(), riderDtos);
     }
 
 }

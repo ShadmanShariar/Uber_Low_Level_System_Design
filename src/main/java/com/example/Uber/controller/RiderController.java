@@ -1,5 +1,6 @@
 package com.example.Uber.controller;
 
+import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveRiderDto;
 import com.example.Uber.dto.response.RiderDto;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,6 @@ public interface RiderController {
     ResponseEntity<RiderDto> createRider(SaveRiderDto saveRiderDto);
 
     @GetMapping
-    ResponseEntity<List<RiderDto>> getAllRiders (@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize);
+    ResponseEntity<ApiResponse<List<RiderDto>>> getAllRiders (@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize);
 
 }

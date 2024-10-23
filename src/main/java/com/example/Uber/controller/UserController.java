@@ -1,6 +1,8 @@
 package com.example.Uber.controller;
 
+import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveUserDto;
+import com.example.Uber.dto.response.RiderDto;
 import com.example.Uber.dto.response.UserDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,6 @@ public interface UserController {
     ResponseEntity<UserDto> createUser(SaveUserDto saveUserDto);
 
     @GetMapping
-    ResponseEntity<List<UserDto>> getAllUsers (@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize);
+    ResponseEntity<ApiResponse<List<UserDto>>> getAllUsers (@RequestParam(value = "offset", defaultValue = "0", required = false) Integer offset, @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize);
 
 }

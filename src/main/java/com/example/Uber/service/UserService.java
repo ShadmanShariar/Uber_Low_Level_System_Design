@@ -1,5 +1,6 @@
 package com.example.Uber.service;
 
+import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveUserDto;
 import com.example.Uber.dto.response.UserDto;
 
@@ -9,6 +10,6 @@ public interface UserService {
 
     UserDto save(SaveUserDto saveUserDto);
 
-    List<UserDto> getAllUsers(Integer offset, Integer pageSize);
+    ApiResponse<List<UserDto>> getAllUsers(Integer offset, Integer pageSize);
 
 }
