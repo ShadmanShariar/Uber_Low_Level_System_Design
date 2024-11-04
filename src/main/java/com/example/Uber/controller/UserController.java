@@ -2,7 +2,6 @@ package com.example.Uber.controller;
 
 import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveUserDto;
-import com.example.Uber.dto.response.RiderDto;
 import com.example.Uber.dto.response.UserDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

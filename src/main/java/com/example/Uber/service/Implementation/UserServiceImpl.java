@@ -2,7 +2,6 @@ package com.example.Uber.service.Implementation;
 
 import com.example.Uber.dto.api.ApiResponse;
 import com.example.Uber.dto.request.SaveUserDto;
-import com.example.Uber.dto.response.RiderDto;
 import com.example.Uber.dto.response.UserDto;
 import com.example.Uber.model.User;
 import com.example.Uber.repository.UserRepository;
