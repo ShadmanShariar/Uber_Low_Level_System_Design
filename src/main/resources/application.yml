@@ -5,7 +5,7 @@ spring:
       database: database
 server:
   port: 9090
-#azure:
-#  storage:
-#    connection-string: connection_string_here
-#    container-name: container_name_here
+azure:
+  storage:
+    connection-string: connection_string_here
+    container-name: container_name_here
